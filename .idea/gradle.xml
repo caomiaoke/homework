@@ -6,11 +6,12 @@
         <option name="createEmptyContentRootDirectories" value="true" />
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="/usr/local/Cellar/gradle/3.5/libexec" />
-        <option name="gradleJvm" value="1.8" />
+        <option name="gradleHome" value="/usr/lib/gradle/3.5" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/springDataTest" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
