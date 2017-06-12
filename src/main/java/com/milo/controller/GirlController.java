@@ -1,6 +1,7 @@
 package com.milo.controller;
 
 import com.milo.domain.Girl;
+import com.milo.repository.GirlCRUDRepository;
 import com.milo.repository.GirlRepository;
 import com.milo.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,10 @@ public class GirlController {
 
     @Autowired
     private GirlRepository girlRepository;
+
+    @Autowired
+    private GirlCRUDRepository girlCRUDRepository;
+
     @Autowired
     private GirlService girlService;
 
@@ -84,5 +89,27 @@ public class GirlController {
     public void girlTwo(){
         girlService.insertTwo();
     }
+
+    @GetMapping(value = "/girlss/{id}")
+    public Girl findById(@PathVariable("id") Integer id){
+        return girlCRUDRepository.findAllById(id);
+    }
+
+    @PostMapping(value = "/girlss")
+    public Girl girlssAdd(@RequestParam("age") Integer age,
+                          @RequestParam("cupSize") String cupSize,
+                          @RequestParam(value = "height", required = false,defaultValue = "110") Double height,
+                          @RequestParam(value = "weight", required = false,defaultValue = "80") Double weight){
+        Girl girl = new Girl();
+
+        girl.setHeight(height);
+        girl.setWeight(weight);
+        girl.setAge(age);
+        girl.setCupSize(cupSize);
+        return girlCRUDRepository.save(girl);
+
+    }
+
+
 
 }
